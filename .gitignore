@@ -1,2 +1,5 @@
 # exclude InDesign locks
 *.idlk
+
+# exclude budget
+*budget*
