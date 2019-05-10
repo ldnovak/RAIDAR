@@ -1,0 +1,2 @@
+# ignore Microsoft lock files for PowerPoint, etc.
+~$*.pptx
