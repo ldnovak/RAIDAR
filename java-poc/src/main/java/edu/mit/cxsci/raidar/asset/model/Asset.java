@@ -1,4 +1,4 @@
-package edu.mit.cxsci.raidar.model.asset;
+package edu.mit.cxsci.raidar.asset.model;
 
 public interface Asset {
 

@@ -1,4 +1,4 @@
-package edu.mit.cxsci.raidar.model.asset;
+package edu.mit.cxsci.raidar.asset.model;
 
 import com.google.gson.Gson;
 import org.springframework.data.annotation.Id;
