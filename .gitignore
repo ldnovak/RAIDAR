@@ -1,3 +1,6 @@
+# ignore Microsoft lock files for PowerPoint, etc.
+~$*.pptx
+
 # exclude InDesign locks
 *.idlk
 
