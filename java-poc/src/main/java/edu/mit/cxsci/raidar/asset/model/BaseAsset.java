@@ -1,18 +1,20 @@
 package edu.mit.cxsci.raidar.asset.model;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import edu.mit.cxsci.raidar.util.GsonUtil;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.net.URI;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BaseAsset implements Asset {
+@Document(collection = "assets")
+public class BaseAsset extends AbstractAsset {
 
-    // Unique (to this instance) ID
-    @Id
-    private String id;
+
 
     // Title of the asset
     private String title;
@@ -31,6 +33,7 @@ public class BaseAsset implements Asset {
     private List<URI> sources;
 
     public BaseAsset(){
+        super();
         this.title = "";
         this.createDateTime = LocalDateTime.now();
         this.creatorId = "";
@@ -82,7 +85,4 @@ public class BaseAsset implements Asset {
         this.creatorId = creatorId;
     }
 
-    public String toJson(){
-        return new Gson().toJson(this);
-    }
 }

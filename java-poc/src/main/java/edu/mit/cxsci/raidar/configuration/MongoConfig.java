@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @Configuration
-@EnableMongoRepositories("edu.mit.cxsci.raidar.repository")
+@EnableMongoRepositories(basePackages = {"edu.mit.cxsci.raidar.asset.repository"})
 public class MongoConfig extends AbstractMongoConfiguration {
     @Override
     public MongoClient mongoClient() {
