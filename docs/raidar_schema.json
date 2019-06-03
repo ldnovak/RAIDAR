@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$id": "http://edu.mit.cxsci.raidar/raidar_schema.json",
     "title": "Asset",
-    "description": "An open source music resource",
+    "description": "An Open Network of Rights & Asset Information in Decentralized, Authoritative Repositories",
     "type": "object",
     "properties": {
         "MessageHeader": {
