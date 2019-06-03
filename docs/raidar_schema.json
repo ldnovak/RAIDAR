@@ -1,0 +1,426 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://edu.mit.cxsci.raidar/raidar_schema.json",
+    "title": "Asset",
+    "description": "An open source music resource",
+    "type": "object",
+    "properties": {
+        "MessageHeader": {
+            "description": "The message header",
+            "type": "string",
+            "MessageThreadId": {
+                "description": "The message header",
+                "type": "string"
+            },
+            "MessageId": {
+                "description": "The message id",
+                "type": "string"
+            },
+            "MessageSender": {
+                "description": "The Message Sender",
+                "type": "object",
+                "properties": {
+                    "PartyId": {
+                        "description": "The party id",
+                        "type": "string"
+                    },
+                    "PartyName": {
+                        "description": "The party name",
+                        "type": "object",
+                        "properties": {
+                            "FullName": {
+                                "description": "The party full name",
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "required": []
+            },
+            "MessageRecipient": {
+                "description": "The Message Recipient",
+                "type": "object",
+                "properties": {
+                    "PartyId": {
+                        "description": "The party id",
+                        "type": "string"
+                    },
+                    "PartyName": {
+                        "description": "The party name",
+                        "type": "object",
+                        "properties": {
+                            "FullName": {
+                                "description": "The party full name",
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "required": []
+            },
+            "MessageCreatedDateTime": {
+                "description": "The Message Created Date Time",
+                "type": "string"
+            },
+            "MessageControlType": {
+                "description": "The Message Control Type",
+                "type": "string"
+            }
+        },
+        "UpdateIndicator": {
+            "type": "string"
+        },
+        "ResourceList": {
+            "description": "The resource list",
+            "type": "array",
+            "SoundRecording": {
+                "description": "Sound Recording",
+                "type": "object",
+                "properties": {
+                    "SoundRecordingType": {
+                        "description": "The Sound Recording Type",
+                        "type": "string"
+                    },
+                    "SoundRecordingId": {
+                        "description": "The Sound Recording id",
+                        "type": "object",
+                        "propertiies": {
+                            "ISRC": {
+                                "description": "The ISRC",
+                                "type": "string"
+                            },
+                            "required": []
+                        }
+                    },
+                    "ResourceReference": {
+                        "description": "The Sound Recording Reference",
+                        "type": "string"
+                    },
+                    "ReferenceTitle": {
+                        "description": "The Sound Recording reference Title",
+                        "type": "object",
+                        "propertiies": {
+                            "TitleText": {
+                                "description": "The Title Text",
+                                "type": "string"
+                            },
+                            "required": []
+                        }
+                    },
+                    "Duration": {
+                        "description": "The Sound Recording duration",
+                        "type": "string"
+                    },
+                    "SoundRecordingDetailsByTerritory": {
+                        "description": "The Sound Recording Details By Territory",
+                        "type": "object",
+                        "properties": {
+                            "TerritoryCode": {
+                                "description": "The Territory Code",
+                                "type": "string"
+                            },
+                            "Title": {
+                                "description": "The Title",
+                                "type": "array",
+                                "TitleType": {
+                                    "type": "string"
+                                },
+                                "TitleText": {
+                                    "type": "string"
+                                }
+                            },
+                            "DisplayArtist": {
+                                "description": "The Display Artist",
+                                "type": "object",
+                                "properties": {
+                                    "PartyName": {
+                                        "type": "object",
+                                        "properties": {
+                                            "FullName": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "ArtistRole": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "LabelName": {
+                                "type": "string"
+                            },
+                            "PLine": {
+                                "description": "The PLine",
+                                "type": "object",
+                                "properties": {
+                                    "Year": {
+                                        "type": "string"
+                                    }
+                                },
+                                "PLineText": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "Genre": {
+                            "description": "The Genre",
+                            "type": "object",
+                            "properties": {
+                                "GenreText": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "ParentalWarningType": {
+                        "description": "The Parental Warning Type",
+                        "type": "string"
+                    },
+                    "TechnicalSoundRecordingDetails": {
+                        "description": "The Technical Sound Recording Details",
+                        "type": "object",
+                        "properties": {
+                            "TechnicalResourceDetailsReference": {
+                                "type": "string"
+                            },
+                            "AudioCodecType": {
+                                "type": "string"
+                            },
+                            "IsPreview": {
+                                "type": "boolean"
+                            },
+                            "PreviewDetails": {
+                                "type": "object",
+                                "properties": {
+                                    "StartPoint": {
+                                        "type": "integer"
+                                    },
+                                    "ExpressionType": {
+                                        "type": "boolean"
+                                    }
+                                }
+                            },
+                            "File": {
+                                "type": "object",
+                                "properties": {
+                                    "FileName": {
+                                        "type": "string"
+                                    },
+                                    "FilePath": {
+                                        "type": "string"
+                                    },
+                                    "HashSum": {
+                                        "type": "object",
+                                        "properties": {
+                                            "HashSum": {
+                                                "type": "string"
+                                            },
+                                            "HashSumAlgorithmType": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "ReleaseList": {
+            "type": "array",
+            "Release": {
+                "type": "object",
+                "properties": {
+                    "ReleaseId": {
+                        "type": "object",
+                        "properties": {
+                            "GRid": {
+                                "type": "tsring"
+                            },
+                            "ISRC": {
+                                "type": "tsring"
+                            }
+                        }
+                    },
+                    "ReleaseReference": {
+                        "type": "string"
+                    },
+                    "ReferenceTitle": {
+                        "type": "object",
+                        "properties": {
+                            "TitleText": {
+                                "type": "tsring"
+                            }
+                        }
+                    },
+                    "ReleaseResourceReferenceList": {
+                        "type": "object",
+                        "properties": {
+                            "ReleaseResourceReference": {
+                                "type": "tsring"
+                            }
+                        }
+                    },
+                    "ReleaseType": {
+                        "type": "string"
+                    },
+                    "ReleaseDetailsByTerritory": {
+                        "TerritoryCode": {
+                            "type": "string"
+                        },
+                        "DisplayArtistName": {
+                            "type": "string"
+                        },
+                        "LabelName": {
+                            "type": "string"
+                        },
+                        "Title": {
+                            "description": "The Title",
+                            "type": "array",
+                            "TitleType": {
+                                "type": "string"
+                            },
+                            "TitleText": {
+                                "type": "string"
+                            }
+                        },
+                        "DisplayArtist": {
+                            "description": "The Display Artist",
+                            "type": "object",
+                            "properties": {
+                                "PartyName": {
+                                    "type": "object",
+                                    "properties": {
+                                        "FullName": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "ArtistRole": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "RelatedRelease": {
+                            "type": "object",
+                            "properties": {
+                                "ReleaseId": "object",
+                                "properties": {
+                                    "ICPN": {
+                                        "type": "string"
+                                    }
+                                },
+                                "ReleaseRelationshipType": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "ParentalWarningType": {
+                            "type": "string"
+                        },
+                        "ResourceGroup": {
+                            "type": "object",
+                            "properties": {
+                                "ResourceGroup": {
+                                    "type": "object",
+                                    "properties": {
+                                        "SequenceNumber": {
+                                            "type": "integer"
+                                        },
+                                        "ResourceGroupContentItem": {
+                                            "type": "array",
+                                            "item": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "SequenceNumber": {
+                                                        "type": "integer"
+                                                    },
+                                                    "ResourceType": {
+                                                        "type": "string"
+                                                    },
+                                                    "ReleaseResourceReference": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "ResourceGroupContentItem": {
+                                    "type": "object",
+                                    "properties": {
+                                        "ResourceType": {
+                                            "type": "string"
+                                        },
+                                        "ReleaseResourceReference": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "Genre": {
+                            "type": "object",
+                            "properties": {
+                                "GenreText": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "OriginalReleaseDate": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "DealList": {
+            "type": "array",
+            "ReleaseDeal": {
+                "type": "object",
+                "properties": {
+                    "ReleaseDeal": {
+                        "type": "object",
+                        "properties": {
+                            "DealReleaseReference": {
+                                "type": "string"
+                            },
+                            "Deal": {
+                                "type": "object",
+                                "properties": {
+                                    "DealTerms": {
+                                        "type": "object",
+                                        "properties": {
+                                            "type": "object",
+                                            "properties": {
+                                                "CommercialModelType":{"type": "string"},
+                                                "Usage":{"type": "object"},
+                                                "TerritoryCode":{"type": "string"},
+                                                "PriceInformation":{"type": "object",
+                                                    "properties": {
+                                                        "PriceType":{"type": "string"}
+                                                    }
+                                                },
+                                                "ValidityPeriod":{"type": "object",
+                                                    "properties": {
+                                                        "StartDate":{"type": "date"}
+                                                    }},
+                                                "PreOrderReleaseDate":{"type": "string"},
+                                                "PreOrderPreviewDate":{"type": "string"}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "required": [
+        "MessageHeader",
+        "ResourceList"
+    ]
+}
