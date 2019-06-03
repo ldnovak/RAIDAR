@@ -1,8 +1,10 @@
 package edu.mit.cxsci.raidar.configuration;
 
 import com.mongodb.MongoClient;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @Configuration
@@ -17,4 +19,10 @@ public class MongoConfig extends AbstractMongoConfiguration {
     protected String getDatabaseName() {
         return "raidar";
     }
+
+    public @Bean
+    MongoTemplate mongoTemplate() {
+        return new MongoTemplate(mongoClient(), getDatabaseName());
+    }
+
 }

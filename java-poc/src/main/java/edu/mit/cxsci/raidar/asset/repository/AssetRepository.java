@@ -4,11 +4,12 @@ import edu.mit.cxsci.raidar.asset.model.AbstractAsset;
 import edu.mit.cxsci.raidar.asset.model.Asset;
 import edu.mit.cxsci.raidar.asset.model.BaseAsset;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.repository.Repository;
 
 /**
  * @author srmoore
  */
-public interface AssetRepository extends MongoRepository<BaseAsset, String> {
+public interface AssetRepository {
 
 	/**
 	 * Add an {@link Asset} to the Repository
