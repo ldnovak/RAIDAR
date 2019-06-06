@@ -1,0 +1,166 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://example.com/product.schema.json",
+    "title": "Asset",
+    "description": "An open source music resource",
+    "type": "object",
+    "properties": {
+        "id": {
+            "description": "The id of the music album",
+            "type": "integer"
+        },
+        "title": {
+            "description": "The title of the album",
+            "type": "string"
+        },
+        "title_type": {
+            "description": "The title type of the album",
+            "type": "string"
+        },
+        "sub_title": {
+            "description": "The subtitle of the album",
+            "type": "string"
+        },
+        "artist": {
+            "description": "The main artist",
+            "type": "object",
+            "properties": {
+                "full_name":  {
+                    "description": "The title type of the album",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "full_name"
+            ]
+        },
+        "release_type": {
+            "description": "The release type of the album",
+            "type": "string"
+        },
+        "release_type_reference": {
+            "description": "The release type reference of the album",
+            "type": "string"
+        },
+        "parental_warning_type": {
+            "description": "The parental_warning_type of the album",
+            "type": "string"
+        },
+        "is_medley": {
+            "description": "A Flag indicating whether a Creation is a Medley (True/False)",
+            "type": "boolean"
+        },
+        "is_multi_artist_compilation": {
+            "description": "A Flag indicating whether a muultiple artist involve in this (True/False)",
+            "type": "boolean"
+        },
+        "duration": {
+            "description": "Belongs to Class Flag An Aspect whose instances are limited to the Boolean values (True/False)",
+            "type": "boolean"
+        },
+        "territory": {
+            "description": "The territory of the album, like US, Canada,etc.",
+            "type": "string"
+        },
+        "date": {
+            "description": "The date of the recording",
+            "type": "string"
+        },
+        "group": {
+            "description": "The group the artist belogs to",
+            "type": "string"
+        },
+        "tags": {
+            "description": "Tags for the album",
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+        },
+        "songs": {
+            "description": "The title of the album",
+            "type": "array",
+            "song": {
+                "description": "The title of the song",
+                "id": {
+                    "description": "The id of the song",
+                    "type": "integer"
+                },
+                "type": "string",
+                "tracks": {
+                    "description": "The music track (vocal or instrument)",
+                    "display_artists": {
+                        "description": "The track artist (unique) of the album",
+                        "type": "array",
+                        "display_artist": {
+                            "type": "object",
+                            "properties": {
+                                "full_names": {
+                                    "type": "array",
+                                    "full_name": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "description": "The id of the artist",
+                                                "type": "integer"
+                                            },
+                                            "name":  {
+                                                "description": "The name of the artist",
+                                                "type": "string"
+                                            },
+                                            "id_space": {
+                                                "description": "The identiy origin of the artist",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "id",
+                                            "name",
+                                            "id_space"
+                                        ]
+                                    }
+                                },
+                                "address": {
+                                    "description": "The address of the artist",
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "description": "The email address of the artist",
+                                    "type": "string"
+                                },
+                                "date": {
+                                    "description": "The date of the performance in UTC",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "full_names",
+                                "address",
+                                "date",
+                                "email"
+                            ]
+                        },
+                        "minItems": 1,
+                        "uniqueItems": true,
+                        "date": "utc"
+                    }
+                }
+            },
+            "minItems": 1,
+            "uniqueItems": true
+        }
+    },
+    "required": [
+        "id",
+        "title",
+        "date",
+        "artist",
+        "songs",
+        "group",
+        "territory",
+        "duration",
+        "release_type"
+    ]
+}
