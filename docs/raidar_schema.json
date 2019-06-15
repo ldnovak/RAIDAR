@@ -5,123 +5,127 @@
     "description": "An open source music resource",
     "type": "object",
     "properties": {
-        "id": {
-            "description": "The id of the music album",
-            "type": "integer"
-        },
-        "title": {
-            "description": "The title of the album",
-            "type": "string"
-        },
-        "title_type": {
-            "description": "The title type of the album",
-            "type": "string"
-        },
-        "sub_title": {
-            "description": "The subtitle of the album",
-            "type": "string"
-        },
-        "artist": {
-            "description": "The main artist",
-            "type": "object",
-            "properties": {
-                "full_name":  {
-                    "description": "The title type of the album",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "full_name"
-            ]
-        },
-        "release_type": {
-            "description": "The release type of the album",
-            "type": "string"
-        },
-        "release_type_reference": {
-            "description": "The release type reference of the album",
-            "type": "string"
-        },
-        "parental_warning_type": {
-            "description": "The parental_warning_type of the album",
-            "type": "string"
-        },
-        "is_medley": {
-            "description": "A Flag indicating whether a Creation is a Medley (True/False)",
-            "type": "boolean"
-        },
-        "is_multi_artist_compilation": {
-            "description": "A Flag indicating whether a muultiple artist involve in this (True/False)",
-            "type": "boolean"
-        },
-        "duration": {
-            "description": "Belongs to Class Flag An Aspect whose instances are limited to the Boolean values (True/False)",
-            "type": "boolean"
-        },
-        "territory": {
-            "description": "The territory of the album, like US, Canada,etc.",
-            "type": "string"
-        },
-        "date": {
-            "description": "The date of the recording",
-            "type": "string"
-        },
-        "group": {
-            "description": "The group the artist belogs to",
-            "type": "string"
-        },
-        "tags": {
-            "description": "Tags for the album",
-            "type": "array",
-            "items": {
+        "AssetHeaderInfo": {
+            "ID": {
+                "description": "The title of the album",
                 "type": "string"
             },
-            "minItems": 1,
-            "uniqueItems": true
+            "LEADER": {
+                "description": "The title of the album",
+                "type": "string"
+            },
+            "Date": {
+                "description": "The title of the album",
+                "type": "string"
+            },
+            "ControlID": {
+                "description": "The title of the album",
+                "type": "string"
+            },
+            "Receiver": {
+                "description": "The title of the album",
+                "type": "string"
+            },
+            "Sender": {
+                "description": "The title of the album",
+                "type": "string"
+            },
+            "Token": {
+                "description": "The title of the album",
+                "type": "string"
+            },
+            "Title": {
+                "description": "The title of the album",
+                "type": "string"
+            },
+            "SubTitle": {
+                "description": "The title of the album",
+                "type": "string"
+            },
+            "Copyright": {
+                "description": "The title of the album",
+                "type": "string"
+            }
         },
-        "songs": {
+        "AssetResourceList": {
             "description": "The title of the album",
             "type": "array",
-            "song": {
-                "description": "The title of the song",
-                "id": {
-                    "description": "The id of the song",
-                    "type": "integer"
+            "AudioRecording": {
+                "description": "The music track (vocal or instrument)",
+                "Date": {
+                    "description": "The title of the album",
+                    "type": "string"
                 },
-                "type": "string",
-                "tracks": {
-                    "description": "The music track (vocal or instrument)",
-                    "display_artists": {
-                        "description": "The track artist (unique) of the album",
-                        "type": "array",
-                        "display_artist": {
-                            "type": "object",
-                            "properties": {
-                                "full_names": {
-                                    "type": "array",
-                                    "full_name": {
-                                        "type": "object",
-                                        "properties": {
-                                            "id": {
-                                                "description": "The id of the artist",
-                                                "type": "integer"
-                                            },
-                                            "name":  {
-                                                "description": "The name of the artist",
-                                                "type": "string"
-                                            },
-                                            "id_space": {
-                                                "description": "The identiy origin of the artist",
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "id",
-                                            "name",
-                                            "id_space"
-                                        ]
+                "Duration": {
+                    "description": "The title of the album",
+                    "type": "string"
+                },
+                "Title": {
+                    "description": "The title of the album",
+                    "type": "string"
+                },
+                "ID": {
+                    "description": "The title of the album",
+                    "type": "object",
+                    "propertiies": {
+                        "ISRC": {
+                            "description": "The ISRC",
+                            "type": "string"
+                        },
+                        "required": []
+                    }
+                },
+                "Type": {
+                    "description": "The title of the album",
+                    "type": "string"
+                },
+                "Reference": {
+                    "description": "The title of the album",
+                    "type": "string"
+                },
+                "ReferenceTitle": {
+                    "description": "The Sound Recording reference Title",
+                    "type": "object",
+                    "propertiies": {
+                        "TitleText": {
+                            "description": "The Title Text",
+                            "type": "string"
+                        },
+                        "required": []
+                    }
+                },
+                "display_artist": {
+                    "type": "object",
+                    "properties": {
+                        "full_names": {
+                            "type": "array",
+                            "full_name": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "description": "The id of the artist",
+                                        "type": "integer"
+                                    },
+                                    "name": {
+                                        "description": "The name of the artist",
+                                        "type": "string"
+                                    },
+                                    "id_space": {
+                                        "description": "The identiy origin of the artist",
+                                        "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "id",
+                                    "name",
+                                    "id_space"
+                                ]
+                            }
+                        },
+                        "ContactInfo": {
+                            "description": "The identiy origin of the artist",
+                            "type": "object",
+                            "properties": {
                                 "address": {
                                     "description": "The address of the artist",
                                     "type": "string"
@@ -130,37 +134,71 @@
                                     "description": "The email address of the artist",
                                     "type": "string"
                                 },
-                                "date": {
-                                    "description": "The date of the performance in UTC",
+                                "phone": {
+                                    "description": "The email address of the artist",
+                                    "type": "string"
+                                },
+                                "officialWebsite": {
+                                    "description": "The email address of the artist",
                                     "type": "string"
                                 }
-                            },
-                            "required": [
-                                "full_names",
-                                "address",
-                                "date",
-                                "email"
-                            ]
+                            }
                         },
-                        "minItems": 1,
-                        "uniqueItems": true,
-                        "date": "utc"
-                    }
-                }
+                        "Role": {
+                            "description": "The date of the performance in UTC",
+                            "type": "string"
+                        },
+                        "GroupName": {
+                            "description": "The date of the performance in UTC",
+                            "type": "string"
+                        },
+                        "Reference": {
+                            "description": "The date of the performance in UTC",
+                            "type": "string"
+                        },
+                        "LabelName": {
+                            "description": "The date of the performance in UTC",
+                            "type": "string"
+                        },
+                        "RecordingRight": {
+                            "description": "The date of the performance in UTC",
+                            "type": "string"
+                        },
+                        "Lyrics": {
+                            "description": "The date of the performance in UTC",
+                            "type": "string"
+                        },
+                        "Genre": {
+                            "description": "The date of the performance in UTC",
+                            "type": "string"
+                        },
+                        "AudioTechnicalDetail": {
+                            "description": "The date of the performance in UTC",
+                            "type": "string"
+                        },
+                        "Ethnicity": {
+                            "description": "The date of the performance in UTC",
+                            "type": "string"
+                        },
+                        "Gender": {
+                            "description": "The date of the performance in UTC",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "full_names",
+                        "address",
+                        "date",
+                        "email"
+                    ]
+                },
+                "minItems": 1,
+                "uniqueItems": true,
+                "date": "utc"
             },
-            "minItems": 1,
-            "uniqueItems": true
-        }
-    },
-    "required": [
-        "id",
-        "title",
-        "date",
-        "artist",
-        "songs",
-        "group",
-        "territory",
-        "duration",
-        "release_type"
-    ]
+            "VideoRecording": {},
+            "Movie": {}
+        },
+        "Concert": {}
+    }
 }
