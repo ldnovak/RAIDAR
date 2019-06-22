@@ -1,0 +1,18 @@
+DictionaryEntry:
+    DictionaryEntry is the class with an id (ObjectId - springboot defined id), key (String), and valueList (List<String)
+        Has operations that are similar to that of modifing lists
+    DictionaryEntryApplication is default method that came with importing package
+    DictionaryEntryeController is the REST API - NOTE database it is connected to is defiend in application.properties
+    DictionaryEntryRepository is the basic MongoDB repository - defines what type of repository and that we can search by id or by key
+
+Tests:
+    DictionaryEntry test that are tests for the class of dictionary entry without a repository
+    NOTE I was running into issues of Error Application Context not found - I would need to define applicationContext.xml for testing
+        Decided to not do that now as takes sometime for me to figure out and will be heavily dependent on connection to database
+        Can be changed later for test for REST API are through python
+    python:
+        simple_interface.py - run it to have a simple interface to run requests to data base
+            uses subprocess to run curl through terminal - forgot about requests package and also allows for future easy interface if want other commands through terminal
+        api_test.py - test for REST API (basic connection, adding and element, and all aspects of modifying it)
+            tests may needed to be broken up into smaller tests in future
+            uses requests package
