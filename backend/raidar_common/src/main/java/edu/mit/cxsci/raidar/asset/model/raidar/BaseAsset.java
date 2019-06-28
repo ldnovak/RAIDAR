@@ -1,0 +1,87 @@
+package edu.mit.cxsci.raidar.asset.model.raidar;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.net.URI;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+@Document(collection = "assets")
+public class BaseAsset extends AbstractAsset {
+
+
+
+    // Title of the asset
+    private String title;
+
+    // TODO: Better name for the creation of the 'Asset' document, rather than say, the recording
+    private LocalDateTime createDateTime;
+
+
+    // TODO: Make creators/contributors be objects rather than strings?
+    // Who created this
+    private String creatorId;
+    // who contributed to the asset.
+    private List<String> contributors;
+
+    // sources are links to the actual asset (I.E. music recording, etc.)
+    private List<URI> sources;
+
+    public BaseAsset(){
+        super();
+        this.title = "";
+        this.createDateTime = LocalDateTime.now();
+        this.creatorId = "";
+        this.sources = new ArrayList<>();
+        this.contributors = new ArrayList<>();
+    }
+
+    public void addSource(URI source){
+        if(!sources.contains(source)){
+            sources.add(source);
+        }
+    }
+
+    public List<URI> getSoruces(){
+        return sources;
+    }
+
+    public void addContributor(String contributor){
+        if (!this.contributors.contains(contributor)){
+            this.contributors.add(contributor);
+        }
+    }
+
+    public List<String> getContributors(){
+        return contributors;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public LocalDateTime getCreateDateTime() {
+        return createDateTime;
+    }
+
+    public void setCreateDateTime(LocalDateTime createDateTime) {
+        this.createDateTime = createDateTime;
+    }
+
+    public String getCreatorId() {
+        return creatorId;
+    }
+
+    public void setCreatorId(String creatorId) {
+        this.creatorId = creatorId;
+    }
+
+}
