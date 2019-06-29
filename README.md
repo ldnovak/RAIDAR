@@ -58,7 +58,7 @@ Each microservice runs in docker container using docker-compose.
 ![High Level Architecture](pictures/raidar_high_level_architecture.png)
 
 
-## Intial Author
+## Initial Author
 
 * **Mizanul Hoq Chowdhury** - *Architecture, Design, Initial work* - 
 
