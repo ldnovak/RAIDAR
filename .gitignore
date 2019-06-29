@@ -1,6 +1,8 @@
 *.idlk
 *budget*
 .settings
+.classpath
+.project
 .idea
 *.iml
 target
