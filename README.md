@@ -52,10 +52,10 @@ Each microservice runs in docker container using docker-compose.
 
 
 # RAIDAR Stack
-![picture alt](https://github.com/CxSci/RAIDAR/tree/microservices/pictures/raidar_stack.png "RAIDAR Stack")
+![Stack](https://github.com/CxSci/RAIDAR/tree/microservices/pictures/raidar_stack.png)
 
 # RAIDAR High Level Architecture
-![picture alt](https://github.com/CxSci/RAIDAR/tree/microservices/pictures/raidar_high_level_architecture.png "RAIDAR High Level Architecture")
+![High Level Architecture](https://github.com/CxSci/RAIDAR/tree/microservices/pictures/raidar_high_level_architecture.png)
 
 
 ## Intial Author
