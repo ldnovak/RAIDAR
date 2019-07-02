@@ -1,0 +1,77 @@
+#author: Mizanul Chowdhury
+
+version: '2'
+services:
+  nginx:
+    container_name: raidar-nginx
+    image: nginx:1.13
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    networks:
+      - raidar
+    depends_on:
+      - api
+
+  mongodb:
+    container_name: raidar-mongo
+    image: mongo:3.6
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+      - MONGO_INITDB_DATABASE=raidar
+    volumes:
+      - ./data/db:/data/db
+    ports:
+      - 27017:27017
+    networks:
+      - raidar    
+    command: mongod --smallfiles --logpath=/dev/null # --quiet
+  api:
+    restart: always
+    build: ./backend/raidar_rest_api
+    container_name: raidar-api
+    working_dir: /backend/raidar_rest_api
+    volumes:
+      - ./backend/raidar_rest_api:/app
+      - ~/.m2:/root/.m2
+    expose:
+      - "8080"
+    networks:
+      - raidar  
+    command: mvn clean spring-boot:run
+    depends_on:
+      - mongodb
+  web:
+    restart: always
+    build: ./frontend/raidar-web
+    container_name: raidar-web
+    image: "raidar-web-image"
+    ports:
+     - "3000:3000" 
+    networks:
+      - raidar    
+  solr:
+    image: solr
+    container_name: raidar-solr    
+    ports:
+      - "9983:9983"
+      - "8983:8983"
+    networks:
+      - raidar 
+    volumes:
+      - data:/opt/solr/server/solr/mycores
+    entrypoint:
+      - docker-entrypoint.sh
+      - solr
+      - start
+      - -c
+      - -f
+volumes:
+  data:      
+networks:
+      raidar:
+        driver: bridge      
