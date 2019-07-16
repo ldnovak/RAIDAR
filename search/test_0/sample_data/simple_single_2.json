@@ -1,0 +1,6 @@
+{
+	"name": "Alice",
+	"writers": ["Bob"],
+	"producers": ["Carol"],
+	"tags": ["happy"]
+}
