@@ -98,7 +98,10 @@ query_string: https://www.elastic.co/guide/en/elasticsearch/reference/current/qu
 --> everything besides specific combinations of fields
 bool: https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-bool-query.html
 --> combine fields where each is specific
+match_all
+--> query for getting everything
 '''
+
 
 'fields must be list'
 def query_string_maker(query_string, fields, default_operator="OR", phrase_slop=0, max_determinized_states=5000, auto_fuzzy=False):
@@ -143,3 +146,6 @@ def bool_maker(query_list, bool_list):
     for bool_term in sorted_bools:
         bool_dict["bool"][bool_term] = sorted_bools[bool_term]
     return bool_dict
+
+
+match_all = {"query": {"match_all": {}}}

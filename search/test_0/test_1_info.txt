@@ -1,0 +1,5 @@
+username: elastic
+password: i2WwruacD9GmBWaGKdjFElQB
+Cloud Id: test1:dXMtZWFzdC0xLmF3cy5mb3VuZC5pbyQ1ZDZhZDQ2ZDAwOTg0NzAyYjg3ZmUwYjI0OTIzMDliMyRiNjY3ZGNiOGZjNjI0MjVkYTMzNjJjZmQ2YjJhNTRlYQ==
+Elastic Search end point url: https://5d6ad46d00984702b87fe0b2492309b3.us-east-1.aws.found.io:9243
+Kebana end point url: https://b667dcb8fc62425da3362cfd6b2a54ea.us-east-1.aws.found.io:9243
