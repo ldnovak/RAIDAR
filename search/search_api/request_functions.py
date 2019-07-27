@@ -4,7 +4,7 @@ import requests
 import json
 from search_api.json_template_maker import non_query_maker, fuzzy_maker, query_string_maker, bool_maker, match_all
 from search_api.api_settings import api
-from search_api.api_models import search_model
+from search_api.api_models import search_model, simple_tag_model
 from flask_restplus import Resource
 from flask import request, make_response, jsonify
 
@@ -17,7 +17,7 @@ address = 'https://5d6ad46d00984702b87fe0b2492309b3.us-east-1.aws.found.io:9243/
 search_address = os.path.join(address, '_search')
 doc_address = os.path.join(address, '_doc')  # TODO add to settings to make sure
 
-# response = requests.get(os.path.join(search_address, '?q=tags:happy'), auth=(username, password))
+# response = requests.get(os.path.join(search_address, '?q=tags:test'), auth=(username, password))
 # print(response.json())
 
 
@@ -81,9 +81,37 @@ class SearchId(Resource):
 @ns.route('/search/basic')
 class SearchBasic(Resource):
 
-    # TODO @api.expect(model)
-    def get(self):
+    @api.expect(simple_tag_model)
+    def post(self):
+        tags = request.json["should"]
+        fuzzy_tags = add_fuzziness(tags, fuzziness="AUTO")
+        response = get_query(fuzzy_tags)
+        return format_response(response)
+
+@ns.route('search/specific')
+class SearchSpecific(Resource):
+
+    # TODO make @api.expect and make model
+    def post(self):
         pass
+
+
+def add_fuzziness(tag_list, fuzziness="AUTO"):
+    """
+    makes a list of tags automatically have fuzziness --> adds ~ to end of each tag
+    :param tag_list: list of strings that are the tags
+    :param fuzziness: level of fuzziness each word should have -- same as elasticsearch input
+    :return: string of tags with fuzziness, specified by simple query string
+    """
+    if fuzziness == "AUTO":  # this is to make the default fuzziness consistent across functions
+        fuzziness = ""
+    else:
+        fuzziness = str(fuzziness)  # make sure if fuzziness is an int becomes str
+    fuzzy_tags = []
+    for tag in tag_list:
+        fuzzy_tags.append(tag + "~" + fuzziness)
+    return " ".join(fuzzy_tags)
+
 
 def get_just_tags(tag_list, fuzziness="AUTO", max_expansions=50, _source=list("*"), size=10):
     """
@@ -103,7 +131,7 @@ def get_just_tags(tag_list, fuzziness="AUTO", max_expansions=50, _source=list("*
     return response
 
 
-def get_query(query_string, fields =list("tags"), _source=list("*"), size=10, from_index=0, highlight=None):
+def get_query(query_string, fields =["tags"], _source=list("*"), size=10, from_index=0, highlight=None):
     json_search = non_query_maker( _source=_source, size=size, from_index=from_index,
                                                        highlight=highlight)
     json_search["query"] = query_string_maker(query_string, fields)

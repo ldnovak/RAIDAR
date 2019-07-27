@@ -1,5 +1,5 @@
 # TODO logging
-from flask import Flask, Blueprint, request, make_response, jsonify, abort
+from flask import Flask, Blueprint  #, request, make_response, jsonify, abort
 from search_api.api_settings import api
 from search_api.request_functions import ns as search_namespace
 
@@ -20,11 +20,11 @@ def init_app(app):
     app.register_blueprint(blueprint)
 
 
+init_app(app)
 
 if __name__ == '__main__':
-    init_app(app)
-    # TODO logging
     app.run(debug=True)
+
 
 
 # '''

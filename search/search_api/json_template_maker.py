@@ -73,11 +73,19 @@ def template_maker(query_string, fields, _source=list("*"), size=10, from_index=
     # print(bool_maker([fuzzy_maker(query_string, fields), fuzzy_maker(query_string, fields)], ["must", "must"]))
     return template
 
-def highlight_maker(highlights_field):
-    return {"fields": {
-        highlights_field: {}
-        }
-    }
+
+def highlight_maker(highlights_fields):
+    """
+    makes a basic highlight field dict as specified by elasticsearch
+        see https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-highlighting.html
+    :param highlights_fields: list of strings of fields want to highlight
+    :return:  highlight field dict
+    """
+    highlight_dict = {"fields": {}}
+    for field in highlights_fields:
+        highlight_dict["fields"][field] = {}
+    return highlight_dict
+
 
 def non_query_maker(_source=list("*"), size=10, from_index=0, highlight=None):
     non_query_dict = {
